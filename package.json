@@ -1,0 +1,21 @@
+{
+  "name": "calling-context",
+  "version": "0.1.0",
+  "description": "Provide a context of values for functions to run in. Great alternative to global state.",
+  "main": "main.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "keywords": [
+    "context",
+    "enviornment",
+    "global",
+    "local",
+    "function"
+  ],
+  "author": "Scotty Jamison",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^3.6.1"
+  }
+}
