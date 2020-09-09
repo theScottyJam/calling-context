@@ -41,8 +41,6 @@ Calling-Contexts serve the same purpose as React Contexts but in the non-UI worl
 <br/>
 <br/>
 <br/>
-<br/>
-<br/>
 
 # API Reference
 
@@ -73,8 +71,6 @@ provide({[ctx1]: value1, [ctx2]: value2}, () => { ... })
 
 Retrieves the value currently being provided to this context handle. If no value is being provided, an error is thrown.
 
-<br/>
-<br/>
 <br/>
 <br/>
 <br/>
