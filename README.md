@@ -4,7 +4,7 @@ Make cleaner, less verbose function signatures while minimizing the usage of glo
 
 It's as simple as
 ```js
-let context = require('calling-context')
+let context = require('@thescottyjam/calling-context')
 
 // 1. Create a context
 let configCtx = context.create()
@@ -38,13 +38,17 @@ Calling-Contexts serve the same purpose as React Contexts but in the non-UI worl
 * Configuring your library to run differently when provided with different contexts (as apposed to a global configuration).
 * Whatever use cases you find
 
-# Function Reference
 
-## create() -> ContextHandle
+
+<div style="height:100px"></div> <!-- Add some spacing -->
+
+# API Reference
+
+## callingContext.create() -> ContextHandle
 
 Creates and returns a ContextHandle.
 
-## provide(contextHandle, value, callback)
+## callingContext.provide(contextHandle, value, callback)
 
 Calls the callback. While the callback is executing, the value will be provided to the contextHandle, and can be retrieved anywhere inside the callback.
 
@@ -54,7 +58,7 @@ Whatever is returned from the callback will be returned by provide().
 
 **NOTE:** async callbacks are not supported.
 
-## provide(contextHandleToValues, callback)
+## callingContext.provide(contextHandleToValues, callback)
 
 An alternative signature to `provide()` that lets you provide values to multiple context handles at once.
 
@@ -66,3 +70,11 @@ provide({[ctx1]: value1, [ctx2]: value2}, () => { ... })
 ## contextHandle.get()
 
 Retrieves the value currently being provided to this context handle. If no value is being provided, an error is thrown.
+
+
+
+<div style="height:100px"></div> <!-- Add some spacing -->
+
+# Source
+
+This project's github repository can be found [here](https://github.com/theScottyJam/calling-context). Issues and feature requests are welcome, and can be submitted on github.
