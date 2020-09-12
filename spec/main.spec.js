@@ -53,6 +53,16 @@ describe('provide()', () => {
       expect(ctx.get()).toBe(1)
     })
   })
+
+  it('can handle errors inside callback', () => {
+    let ctx = context.create()
+    context.provide(ctx, 1, () => {
+      try {
+        context.provide(ctx, 2, () => {throw new Error()})
+      } catch {}
+      expect(ctx.get()).toBe(1)
+    })
+  })
 })
 
 describe('get()', () => {

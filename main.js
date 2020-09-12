@@ -22,9 +22,11 @@ exports.provide = function provide(...args) {
   )
 
   setContextValues(map)
-  let res = callback()
-  unsetContextValues(map)
-  return res
+  try {
+    return callback()
+  } finally {
+    unsetContextValues(map)
+  }
 }
 
 function setContextValues(map) {
