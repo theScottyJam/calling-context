@@ -5,8 +5,7 @@ exports.create = function() {
   return {
     toString: () => id, // Allows it to be used as a map key
     get() {
-      if (!contextValues[id])
-        throw new Error('CTX_NOT_PROVIDED: Attempted to get the value of a context that was not being provided. Make sure you provide the context value with context.provide(...)')
+      if (!contextValues[id]) throw ctxNotProvided()
       return contextValues[id].value
     }
   }
@@ -43,3 +42,7 @@ function unsetContextValues(map) {
       delete contextValues[ctx]
   }
 }
+
+const ctxNotProvided = () => new Error(
+  'CTX_NOT_PROVIDED: Attempted to get the value of a context that was not being provided. Make sure you provide the context value with context.provide(...)'
+)
