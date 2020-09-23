@@ -2,10 +2,12 @@ let contextValues = {}
 
 exports.create = function() {
   let id = `CALLING-CONTEXT-${Math.random().toString().slice(2)}`
+  let provided = () => !!contextValues[id]
   return Object.freeze({
     toString: () => id, // Allows it to be used as a map key
+    provided,
     get() {
-      if (!contextValues[id]) throw ctxNotProvided()
+      if (!provided()) throw ctxNotProvided()
       return contextValues[id].value
     }
   })

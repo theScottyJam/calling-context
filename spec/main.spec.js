@@ -65,9 +65,29 @@ describe('provide()', () => {
   })
 })
 
-describe('get()', () => {
+describe('ctx.get()', () => {
   it('does not allow using a non-provided context', () => {
     let ctx = context.create()
     expect(() => ctx.get()).toThrowError(/^CTX_NOT_PROVIDED/)
+  })
+})
+
+describe('ctx.provided()', () => {
+  it('returns true when the context is provided', () => {
+    let ctx = context.create()
+    context.provide(ctx, 2, () => {
+      expect(ctx.provided()).toBeTrue()
+    })
+  })
+
+  it('returns false when the context is never provided', () => {
+    let ctx = context.create()
+    expect(ctx.provided()).toBeFalse()
+  })
+
+  it('returns false when the context used to be provided', () => {
+    let ctx = context.create()
+    context.provide(ctx, 2, () => {})
+    expect(ctx.provided()).toBeFalse()
   })
 })

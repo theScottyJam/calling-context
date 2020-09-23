@@ -67,14 +67,18 @@ For example, if ctx1 and ctx2 are context handles returned by create(), then thi
 provide({[ctx1]: value1, [ctx2]: value2}, () => { ... })
 ```
 
-## contextHandle.get()
+## contextHandle.get() -> provided value
 
 Retrieves the value currently being provided to this context handle. If no value is being provided, an error is thrown.
 
+## contextHandle.provided() -> boolean
+
+Returns true if a value is currently being provided to this context handle.
+
 <br/>
 <br/>
 <br/>
 
-# Source
+# Project Source
 
 This project's github repository can be found [here](https://github.com/theScottyJam/calling-context). Issues and feature requests are welcome, and can be submitted on github.
