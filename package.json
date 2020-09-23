@@ -1,6 +1,6 @@
 {
   "name": "@thescottyjam/calling-context",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "description": "Provide a context of values for functions to run in. Great alternative to global state.",
   "main": "main.js",
   "scripts": {
