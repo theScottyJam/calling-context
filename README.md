@@ -12,8 +12,8 @@ let configCtx = context.create()
 // 2. Provide some useful values to your context
 let dummyConfig = {verbose: true}
 context.provide(configCtx, dummyConfig, () => {
-  // Anything inside this callback has access to your context
-  console.log('Sum:', addThings(2, 3))
+  // Anything inside this callback has access to your context, including addThings()
+  addThings(2, 3)
 })
 
 // 3. Use the provided context
@@ -65,6 +65,8 @@ An alternative signature to `provide()` that lets you provide values to multiple
 For example, if ctx1 and ctx2 are context handles returned by create(), then this will provide values for both:
 ```js
 provide({[ctx1]: value1, [ctx2]: value2}, () => { ... })
+// NOTE: {[ctx]: value} is valid syntax.
+// It makes the string representation of ctx into the key.
 ```
 
 ## contextHandle.get() -> provided value
